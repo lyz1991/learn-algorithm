@@ -1,15 +1,15 @@
 import {swap} from './util/util'
 import * as data from './util/data'
 let insert = (arr) => {
- for (var i = 1; i < arr.length; i++) {
-   for (var j = i; j > 0; j--) {
-     if (arr[j] > arr[j - 1]) {
-       break
-     } else {
-       swap(arr, j, j - 1)
+ for (let i = 1; i < arr.length; i++) {
+   let e = arr[i]
+   let j
+   for (j = i; j > 0 && e < arr[j - 1]; j--) {
+       arr[j] = arr[j - 1]
      }
+     arr[j] = e
    }
- }
- return arr
 }
-console.log(insert(data.demo))
+console.time('time')
+insert(data.demo)
+console.timeEnd('time')

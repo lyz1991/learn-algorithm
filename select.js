@@ -8,8 +8,9 @@ let select = (arr) => {
       }
     }
   }
-  return arr
 }
 
-console.log(select(data.demo))
+console.time('time')
+select(data.demo)
+console.timeEnd('time')
 /* 选择排序必须走到底无法提前终止，且从0开始，这是和插入排序本质区别*/

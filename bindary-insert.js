@@ -1,0 +1,3 @@
+let insert = (arr, target) => {
+
+}
