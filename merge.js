@@ -19,7 +19,6 @@ let mergesort = (arr) => {
     left    = arr.slice(0, middle),
     right   = arr.slice(middle);
     return merge(mergesort(left), mergesort(right))
-
 }
 console.time('time')
 mergesort(data.demo)

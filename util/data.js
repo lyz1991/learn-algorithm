@@ -1,10 +1,9 @@
-
 let rand = (n) => {
   let data = []
   for (let i = 0; i < n; i++) {
-    data.push(i)
+    data.push(Math.random() * n)
   }
   return data
 }
 
-export let demo = rand(10000000)
+export let demo = rand(1000000)

@@ -6,7 +6,7 @@ let findone = (arr, target) => {
   }
 }
 console.time('time')
-findone(data.demo, 9999999)
+findone(data.demo, 999990)
 console.timeEnd('time')
 
 let findtwo = (arr, target, begin, end) => {
@@ -29,5 +29,5 @@ let findtwo = (arr, target, begin, end) => {
 
 }
 console.time('time')
-findtwo(data.demo, 9999999, 0, data.demo.length)
+findtwo(data.demo, 999990, 0, data.demo.length)
 console.timeEnd('time')
