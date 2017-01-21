@@ -2,11 +2,20 @@ import * as data from './util/data'
 let insert = (arr, target, begin, end) => {
   let mid =  begin + Math.floor((end - begin) / 2)
   let len = arr.length
+  if (begin >= end) {
+    if (arr[begin] > target) {
+      arr = [target].concat(arr)
+    } else {
+      arr = arr.concat(target)
+    }
+    return arr
+  }
   if (arr[mid] <= target && arr[mid + 1] >= target) {
-    for (let i = len; i > mid; i--) {
+    arr = arr.slice(0, mid).concat(target).concat(arr.slice(mid+1))
+    /* for (let i = len; i > mid; i--) {
       arr[i] = arr[i-1]
     }
-    arr[mid+1] = target
+    arr[mid+1] = target */
     return arr
   }
   else if (arr[mid] < target) {
@@ -16,5 +25,5 @@ let insert = (arr, target, begin, end) => {
   }
 }
 console.time('time')
-console.log(insert(data.demo, 2.4, 0, 3))
+console.log(insert(data.data, 2.4, 0, data.data.length))
 console.timeEnd('time')

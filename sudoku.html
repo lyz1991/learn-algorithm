@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  #container{
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+  }
+body{
+  background-color: black;
+}
+  td {
+    padding: 20px;
+  }
+  .input{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+  }
+  input{
+    font-size: 18px;
+    border: 0;
+    vertical-align: middle;
+    text-indent: .5rem;
+  }
+  #btn{
+    padding: 5px 10px;
+    vertical-align: middle;
+  }
+</style>
+<body>
+<div class="input">
+<input type="text" id="col">
+<button id="btn">确定</button>
+</div>
+
+<table id="container">
+
+</table>
+</body>
+<script>
+  function sudoku (num) {
+    console.log(num)
+    if (num % 2 != 1 ) {
+      console.warn('必须是奇数的平方')
+      return
+    }
+    let arr = new Array(num * num + 1)
+    let start = 2
+    return fill(num, arr, start)
+  }
+  function fill(num, arr, start) {
+    let begin = ((num / 2) | 0) + 1
+    arr[begin] = 1
+    while (start <= num * num) {
+      let idx
+      if (begin + 1 - num <= 0) {
+        idx = (num - 1) * num + begin + 1
+      } else if ((begin + 1 - num) % num == 1 ) {
+        let col = Math.floor(begin  / num)
+        if (col == 1) {
+          idx = begin + num
+        } else {
+          let col = Math.floor((begin + 1 - num) / num)
+          idx = (col - 1) * num + 1
+        }
+
+      } else if (arr[begin + 1 - num]) {
+        idx = begin + num
+      } else {
+        idx = begin + 1 - num
+      }
+      arr[idx] = start
+      begin = idx
+      start++
+
+    }
+    return arr.slice(1)
+  }
+  function mysudoku (num) {
+    let con = document.getElementById('container')
+    con.innerHTML = ''
+    let result = sudoku(num)
+    for (let i = 1; i <= num; i++) {
+      let tr = document.createElement('tr')
+      con.appendChild(tr)
+      for (var j = 1; j <= num; j++) {
+        let td = document.createElement('td')
+        td.innerHTML = result[(i - 1) * num + j - 1]
+        tr.appendChild(td)
+      }
+    }
+  }
+  btn.addEventListener('click', function () {
+    mysudoku(+document.getElementById('col').value)
+  })
+</script>
+</html>
