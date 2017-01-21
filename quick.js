@@ -43,5 +43,5 @@ let quick = (arr) => {
   return arr
 }
 console.time('time')
-console.log(quick([1,3,2,2,1,4]))
+quick(data.demo)
 console.timeEnd('time')

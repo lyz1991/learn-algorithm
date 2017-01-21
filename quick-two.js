@@ -2,7 +2,6 @@ import * as data from './util/data'
 import {swap} from './util/util'
 let findIndex = (arr, l, r) => {
   let idx = Math.floor(Math.random() * (r - l + 1)) + l
-  console.log(idx)
   swap(arr, l, idx)
   let j =r, i = l + 1
   let begin = arr[l] // 等待移动的指针
@@ -48,5 +47,5 @@ let quick = (arr) => {
 
 }
 console.time('time')
-console.log(quick([1,3,2,4]))
+quick(data.demo)
 console.timeEnd('time')

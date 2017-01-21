@@ -1,6 +1,6 @@
 import * as data from './util/data'
 import {swap} from './util/util'
-let n = 9
+let n = 23
 let findIndex = (arr, l, r) => {
   let idx = Math.floor(Math.random() * (r - l + 1)) + l
   swap(arr, l, idx)
@@ -22,23 +22,22 @@ let findIndex = (arr, l, r) => {
 }
 let _quick = (arr, l, r) => {
   if (l >= r) {
-    return arr[l]
+    return arr[n - 1]
   }
   let idx = findIndex(arr, l ,r)
-  if (idx == n) {
+  if (idx == n - 1) {
     return arr[idx]
-  } else if (idx > n) {
+  } else if (idx > n - 1) {
     return _quick(arr, l, idx - 1)
   } else {
     return _quick(arr, idx + 1, r)
   }
-
-
 }
-let quick = (arr) => {
+let quick = (arr, n) => {
   let len = arr.length
-  return _quick(arr, 0, len - 1)
+  return _quick(arr, 0, len - 1, n)
 
 }
-console.log(data.demo)
-console.log(quick(data.demo))
+console.time('time')
+quick(data.demo, n)
+console.timeEnd('time')
