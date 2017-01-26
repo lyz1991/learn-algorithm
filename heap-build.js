@@ -13,12 +13,13 @@ let heap = (item) => {
   check(start)
   start++
 }
-let begin = (arr) => {
-  let len = arr.length
+let begin = (data) => {
+  let len = data.length
   for (let i = 0; i < len; i++) {
-    heap(arr[i])
+    heap(data[i])
   }
+  return arr
 }
 console.time('time')
-begin(data.demo)
+console.log(begin([2, 3,5,9,1]))
 console.timeEnd('time')

@@ -12,5 +12,5 @@ let sort = (n) => {
   }
   return data
 }
-export let demo = rand(500000)
+export let demo = rand(1000000)
 export let data = sort(100000)
