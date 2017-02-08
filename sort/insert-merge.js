@@ -1,4 +1,4 @@
-import * as data from './util/data'
+import * as data from '../util/data'
 let merge = (l, r) => {
   let arr = []
   let li  = 0, ri = 0

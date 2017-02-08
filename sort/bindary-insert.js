@@ -1,4 +1,4 @@
-import * as data from './util/data'
+import * as data from '../util/data'
 let insert = (arr, target, begin, end) => {
   let mid =  begin + Math.floor((end - begin) / 2)
   let len = arr.length

@@ -1,5 +1,5 @@
-import {swap} from './util/util'
-import * as data from './util/data'
+import {swap} from '../util/util'
+import * as data from '../util/data'
 let arr = []
 let start = 1
 let check = (k) => {

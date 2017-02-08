@@ -1,5 +1,5 @@
-import {swap} from './util/util'
-import * as data from './util/data'
+import {swap} from '../util/util'
+import * as data from '../util/data'
 let insert = (arr) => {
  for (let i = 1; i < arr.length; i++) {
    let e = arr[i] // 当前待排的这个数

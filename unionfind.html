@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    canvas{
+      display: block;
+      margin: 40px auto;
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas" width="600" height="600">
+
+</canvas>
+
+</body>
+<script>
+  var data = [],canvas = document.getElementById('canvas'), ctx = canvas.getContext('2d')
+  function unionfind(count) {
+    this.p = new Array(count)
+    for (let i = 0; i < count; i++) {
+      this.p[i] = i
+    }
+  }
+  unionfind.prototype = {
+    find: function (target) {
+      while (target != this.p[target]) {
+        this.p[target] = this.p[this.p[target]]
+        target = this.p[target]
+      }
+      return target
+    },
+    isconnect: function (one, two) {
+      return this.find(one) === this.find(two)
+    },
+    union (one, two) {
+      let Pone = this.find(one), Ptwo = this.find(two)
+      if (Pone === Ptwo) {
+        return
+      } else {
+        this.p[Pone] = Ptwo
+      }
+      return this
+    }
+  }
+  var names = ['市场a','市场b', '市场c', '市场d', 'c端a', 'c端b', 'c端c']
+  var len = names.length
+ for (var i = 0; i < len; i++) {
+    var vector = {x: Math.random() * 400 + 100, y: Math.random()* 400 + 100, name:names[i]}
+    data.push(vector)
+ }
+ var mycanvas =new unionfind(len)
+  mycanvas.union(0,1).union(0,2).union(0,3).union(4,5).union(4,6)
+  for (var k = 0; k < data.length; k++) {
+    mycanvas.isconnect(0, 2)
+    ctx.beginPath()
+    ctx.moveTo(data[k].x, data[k].y)
+    ctx.arc(data[k].x, data[k].y,1, 0,Math.PI*2)
+    ctx.fill()
+    ctx.fillText(data[k].name, data[k].x,data[k].y)
+    ctx.closePath()
+    for (var j = k + 1; j < data.length; j++) {
+      if (mycanvas.isconnect(k, j)) {
+        ctx.lineTo(data[j].x, data[j].y)
+      }
+    }
+    ctx.stroke()
+  }
+
+</script>
+</html>

@@ -1,4 +1,4 @@
-import * as data from './util/data'
+import * as data from '../util/data'
 let count = (arr) => {
   let len = arr.length
   let copy = [], bull = []

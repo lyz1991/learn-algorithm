@@ -1,4 +1,4 @@
-import * as data from './util/data'
+import * as data from '../util/data'
 let findone = (arr, target) => {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] == target)

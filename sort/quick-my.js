@@ -1,5 +1,5 @@
-import * as data from './util/data'
-import {swap} from './util/util'
+import * as data from '../util/data'
+import {swap} from '../util/util'
 let findIndex = (arr, l, len) => {
   let idx = Math.floor(Math.random() * (len -l) + l)
   swap(arr, l, idx)

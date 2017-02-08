@@ -1,5 +1,5 @@
-import {swap} from './util/util'
-import * as data from './util/data'
+import {swap} from '../util/util'
+import * as data from '../util/data'
 let select = (arr) => {
   for (var i = 0; i < arr.length;i++) {
     for (var j = i+1; j< arr.length;j++) {

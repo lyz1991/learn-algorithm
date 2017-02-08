@@ -1,5 +1,5 @@
-import {swap} from './util/util'
-import * as data from './util/data'
+import {swap} from '../util/util'
+import * as data from '../util/data'
 let shiftdown = (arr, len, k) => {
   while(2 * k + 1 < len) {
     let j = 2 * k + 1
