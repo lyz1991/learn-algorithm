@@ -1,3 +1,2 @@
 const webpack = require('webpack')
-
-console.log('2')
+console.log(33)
